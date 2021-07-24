@@ -1,15 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import './collection-preview.styles.scss';
-
 import CollectionItem from '../collection-item/collection-item.component.jsx';
+
+import 
+{ CollectionPreviewContainer, PreviewCollectionTitle, PreviewContainer } from './collection-preview.styles';
 
 const CollectionPreview = ({ title, items, history, match }) => {
   return(
-    <div className='collection-preview'>
-      <h2 className='title' onClick={() => history.push(`${match.path}/${title.toLowerCase()}`)} >{title.toUpperCase()}</h2>
-      <div className='preview'>
+    <CollectionPreviewContainer>
+      <PreviewCollectionTitle onClick={() => history.push(`${match.path}/${title.toLowerCase()}`)} >{title.toUpperCase()}</PreviewCollectionTitle>
+      <PreviewContainer>
       {
         items
           .filter((item, idx) => {
@@ -19,9 +20,9 @@ const CollectionPreview = ({ title, items, history, match }) => {
             return <CollectionItem key={item.id} item={item} />
         })
       } 
-      </div>
+      </PreviewContainer>
       
-    </div>
+    </CollectionPreviewContainer>
   );
 };
 

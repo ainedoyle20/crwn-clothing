@@ -7,42 +7,42 @@ import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
-import './checkout-page.styles.scss';
+import { CheckoutPageContainer, CheckoutHeaderContainer, CheckoutHeaderBlock, CheckoutTotal, CheckoutWarning } from './checkout-page.styles';
 
 
 const CheckoutPage = ({ cartItems, total }) => {
   return(
-    <div className='checkout-page'>
-      <div className='checkout-header'>
-        <div className='header-block'>
+    <CheckoutPageContainer>
+      <CheckoutHeaderContainer>
+        <CheckoutHeaderBlock>
           <span>Product</span>
-        </div>
-        <div className='header-block'>
+        </CheckoutHeaderBlock>
+        <CheckoutHeaderBlock>
           <span>Description</span>
-        </div>
-        <div className='header-block'>
+        </CheckoutHeaderBlock>
+        <CheckoutHeaderBlock>
           <span>Quantity</span>
-        </div>
-        <div className='header-block'>
+        </CheckoutHeaderBlock>
+        <CheckoutHeaderBlock>
           <span>Price</span>
-        </div>
-        <div className='header-block'>
+        </CheckoutHeaderBlock>
+        <CheckoutHeaderBlock>
           <span>Remove</span>
-        </div>
-      </div>
+        </CheckoutHeaderBlock>
+      </CheckoutHeaderContainer>
       {
         cartItems.map(cartItem => {
           return <CheckoutItem key={cartItem.id} cartItem={cartItem} />
         })
       }
-      <div className='total'>TOTAL: ${total}</div>
-      <div className='warning-message'>
+      <CheckoutTotal>TOTAL: ${total}</CheckoutTotal>
+      <CheckoutWarning>
         *Please use the following mock credit card for payments*
           <br />
         4242 4242 4242 4242 - Exp: any future date - CVV: 123
-      </div>
+      </CheckoutWarning>
       <StripeCheckoutButton price={total} />
-    </div>
+    </CheckoutPageContainer>
   );
 };
 
