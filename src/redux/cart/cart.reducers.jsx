@@ -28,6 +28,12 @@ const cartReducer = (state=INITIAL_STATE, action) => {
         ...state,
         cartItems: removeItemFromCart(state.cartItems, action.payload)
       }
+    case cartActionTypes.CLEAR_CART_ON_SIGNOUT:
+      return {
+        ...state,
+        hidden: true,
+        cartItems: []
+      }
     default:
       return state;
   };
