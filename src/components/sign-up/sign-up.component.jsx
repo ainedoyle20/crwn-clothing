@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-
 import { signUpStart } from '../../redux/user/user.actions';
 
 import FormInput from '../form-input/form-input.component';
@@ -40,15 +38,6 @@ class SignUp extends React.Component {
     }
 
     signUpStart(displayName, email, password);
-
-    // try {
-    //   const {user} = await auth.createUserWithEmailAndPassword(email, password);
-
-    //   await createUserProfileDocument( user, { displayName });
-
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   render() {
