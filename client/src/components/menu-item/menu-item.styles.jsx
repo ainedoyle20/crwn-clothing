@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const MenuItemBackgroundImage = styled.div`
   width: 100%;
   height:100%;
-  position: center;
   background-size: cover;
+  background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`}
 `;
 
@@ -50,6 +50,10 @@ export const MenuItemContainer = styled.div`
     ${MenuContentContainer} {
       opacity: 0.9;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `;
 

@@ -12,9 +12,7 @@ import Shop from './pages/shop/shop.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout-page.component';
 
-import './App.css';
-
-// sk_test_51IsruTAf5D9mxr024GA3Yd9SmL1u6JBG7GVWkljGvkmzmzij78KPHGi374SrI9rJ7E3FJ5150EA5HBdIjKsRWvF300BrRXz5I5
+import { GlobalStyle } from './global.styles';
 
 class App extends React.Component {
 
@@ -28,6 +26,7 @@ class App extends React.Component {
     const { currentUser } = this.props;
     return (
       <div className="App">
+        <GlobalStyle/>
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
