@@ -17,23 +17,28 @@ const cartReducer = (state=INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload)
-      }
+      };
     case (cartActionTypes.CLEAR_ITEM):
       return {
         ...state,
         cartItems: clearItemFromCart(state.cartItems, action.payload)
-      }
+      };
     case (cartActionTypes.REMOVE_ITEM):
       return {
         ...state,
         cartItems: removeItemFromCart(state.cartItems, action.payload)
-      }
-    case cartActionTypes.CLEAR_CART_ON_SIGNOUT:
+      };
+    case cartActionTypes.CLEAR_CART:
       return {
         ...state,
         hidden: true,
         cartItems: []
-      }
+      };
+    case cartActionTypes.SET_CART_FROM_FIREBASE:
+      return {
+        ...state,
+        cartItems: action.payload
+      };
     default:
       return state;
   };
